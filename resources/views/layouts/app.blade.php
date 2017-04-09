@@ -7,8 +7,14 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    
+    <meta name="author" content="">
+    <meta name="description" content="">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Icon -->
+    <link rel="icon" href="{{ asset("favicon.ico") }}" type="image/x-icon" />
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
