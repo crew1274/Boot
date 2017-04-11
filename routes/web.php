@@ -15,7 +15,7 @@
 
 Auth::routes();
 Route::get('/', 'HomeController@index');
-//Route::resource('boot','BootController');
+Route::resource('boot','BootController');
 
 //更換語系
 Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@switchLang']);

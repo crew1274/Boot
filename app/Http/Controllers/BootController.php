@@ -36,7 +36,7 @@ class BootController extends Controller
     public function create()
     {
         $models= Code::pluck('model', 'model');
-        return view('boot',compact('models'));
+        return view('boot.create',compact('models'));
     }
 
     /**
@@ -89,7 +89,7 @@ class BootController extends Controller
     {
         $models= Code::pluck('model', 'model');
         $setting = Boot_setting::find($id);
-        return view('boot',compact('setting','models'));
+        return view('boot_edit',compact('setting','models'));
     }
 
     /**
@@ -112,7 +112,7 @@ class BootController extends Controller
        $token = Boot_setting::find($id);
        $token-> vaild = '0';
        $token -> save();
-       return redirect('/')->with('success','開機設定更新成功!');
+       return redirect('/')->with('success','開機設定已更新!');
     }
 
     /**
@@ -124,6 +124,6 @@ class BootController extends Controller
     public function destroy($id)
     {
         Boot_setting::find($id)->delete();
-        return redirect('/')->with('success','開機設定刪除成功!');
+        return redirect('/')->with('success','開機設定已刪除!');
     }
 }
