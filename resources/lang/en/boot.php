@@ -1,14 +1,6 @@
 <?php
 
 return [
-    'login' => 'Login',
-    'logout' => 'Logout',
-    'register' => 'Register',
-    'contactus' => 'Contact Us',
-    'language' => 'Language',
-    'password' => 'Password',
-    'remember' => 'Remember Me',
-    'forget' => 'Forger Your Password',
     'create' => 'Create',
     'boot' => 'Boot Setting',
     'model' => 'Model',
@@ -20,6 +12,8 @@ return [
     'edit' => 'Edit',
     'delete' => 'Delete',
     'valid' => 'Validate',
-    'name' => 'Name',
-    'confirm' => 'Confirm Password',
-];
+    'new' => 'Create New Setting',
+    'unique' => 'Circuit Must Unique',
+    'vaild_info' =>'新增設定後請先驗證設定',
+    'vaild_info_edit'=> '修改設定後請先驗證設定',
+    ];

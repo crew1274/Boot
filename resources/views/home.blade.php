@@ -3,17 +3,18 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">@lang('home.boot')</div>
+                <div class="panel-heading"> @lang('home.boot')</div>
                 <div class="row">
                 <div class="col-lg-12 margin-tb">
                 <div class="pull-right">
                 <a class="btn btn-success" href="{{ url('/boot/create') }}">
-                @lang('home.create')</a>
+                <i class="fa fa-plus" aria-hidden="true">  @lang('home.create')</a></i>
                 </div>
 
                 <table class="table table-bordered">
+        <thead>
         <tr>
             <th>@lang('home.model')</th>
             <th>@lang('home.address')</th>
@@ -22,8 +23,10 @@
             <th>@lang('home.circuit')</th>
             <th>@lang('home.action')</th>
         </tr>
-    @foreach ($settings as $key => $setting)
-    @if  ($setting->token == false)
+        </thead>
+    <tbody>
+    @foreach ($setting as $setting )
+    @if  ($setting-> vaild == '0' )
     <tr class="danger">
         <td><p class="text-danger">{{ $setting->model }}</p></td>
         <td><p class="text-danger">{{ $setting->address }}</p></td>
@@ -32,8 +35,10 @@
         <td><p class="text-danger">{{ $setting->circuit }}</p></td>
         <td>
             <a class="btn btn-primary" href="{{ route('boot.edit',$setting->id) }}">@lang('home.edit')</a>
-            <a class="btn btn-danger" href="{{ route('boot.delete',$setting->id) }}">@lang('home.delete')</a>
-            <a class="btn btn-warning" href="{{ route('boot.show',$setting->id) }}">@lang('home.vaild')</a>
+            {!! Form::open(['method' => 'DELETE','route' => ['boot.destroy', $setting->id],'style'=>'display:inline']) !!}
+            {!! Form::submit(trans('home.delete'), ['class' => 'btn btn-danger']) !!}
+            {!! Form::close() !!}            
+            <a class="btn btn-warning" href="{{ route('boot.show',$setting->id) }}">@lang('home.valid')</a>
         </td>
     </tr>
     @else
@@ -45,20 +50,19 @@
         <td><p class="text-danger">{{ $setting->circuit }}</p></td>
         <td>
             <a class="btn btn-primary" href="{{ route('boot.edit',$setting->id) }}">@lang('home.edit')</a>
-            <a class="btn btn-danger" href="{{ route('boot.delete',$setting->id) }}">@lang('home.delete')</a>
+            {!! Form::open(['method' => 'DELETE','route' => ['boot.destroy', $setting->id],'style'=>'display:inline']) !!}
+            {!! Form::submit(trans('home.delete'), ['class' => 'btn btn-danger']) !!}
+            {!! Form::close() !!}
         </td>
     </tr>
-
     @endif
     @endforeach
+    </tbody>
     </table>
-
-        </div>
-    </div>
-
-                
+                </div>  
             </div>
         </div>
     </div>
 </div>
-@endsection
+
+@stop

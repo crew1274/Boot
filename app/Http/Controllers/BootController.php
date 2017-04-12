@@ -24,8 +24,8 @@ class BootController extends Controller
 
     public function index()
     {
-        $settings = Boot_setting::orderBy('circuit','ASC')->paginate(4);
-        return view('setting',compact('settings'))->with('i', ($request->input('page', 1) - 1) * 5);
+        $settings = Boot_setting::orderBy('circuit','ASC');
+        return view('boot.index',compact('settings'));
     }
 
     /**
@@ -52,7 +52,7 @@ class BootController extends Controller
             'address' => 'bail|required|integer|min:1|max:255',
             'ch' => 'bail|required|integer|min:1|max:15',
             'speed' => 'bail|required|integer',
-            'circuit' => 'bail|required|integer|min:1|max:72|unique:settings,circuit',
+            'circuit' => 'bail|required|integer|min:1|max:72|unique:boot_settings,circuit',
         ]);
         Boot_Setting::create($request->all());
         return redirect('/')->with('success','設定新增成功!');
@@ -89,7 +89,7 @@ class BootController extends Controller
     {
         $models= Code::pluck('model', 'model');
         $setting = Boot_setting::find($id);
-        return view('boot_edit',compact('setting','models'));
+        return view('boot.edit',compact('setting','models'));
     }
 
     /**
@@ -106,7 +106,7 @@ class BootController extends Controller
          'address' => 'bail|required|integer|min:1|max:255',
          'ch' => 'bail|required|integer|min:1|max:15',
          'speed' => 'bail|required',
-         'circuit' => 'bail|required|integer|min:1|max:72|unique:settings,circuit,'.$id,
+         'circuit' => 'bail|required|integer|min:1|max:72|unique:boot_settings,circuit,'.$id,
        ]);
        Boot_setting::find($id)->update($request->all());
        $token = Boot_setting::find($id);
