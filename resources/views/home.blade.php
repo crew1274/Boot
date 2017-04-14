@@ -8,10 +8,6 @@
                 <div class="panel-heading"> @lang('home.boot')</div>
                 <div class="row">
                 <div class="col-lg-12 margin-tb">
-                <div class="pull-right">
-                <a class="btn btn-success" href="{{ url('/boot/create') }}">
-                <i class="fa fa-plus" aria-hidden="true">  @lang('home.create')</a></i>
-                </div>
 
                 <table class="table table-bordered">
         <thead>
@@ -62,7 +58,9 @@
                 </div>  
             </div>
         </div>
+    <div class="pull-right">
+        <a class="btn btn-success" href="{{ url('/boot/create') }}">
+        <i class="fa fa-plus" aria-hidden="true">  @lang('home.create')</a></i>
     </div>
 </div>
-
 @stop

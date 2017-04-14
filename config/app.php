@@ -167,6 +167,7 @@ return [
          * Package Service Providers...
          */
         Collective\Html\HtmlServiceProvider::class,
+        Riazxrazor\LaravelSweetAlert\LaravelSweetAlertServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -228,6 +229,8 @@ return [
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
         'Carbon' => 'Carbon\Carbon',
+
+        'LaravelSweetAlert' => Riazxrazor\LaravelSweetAlert\LaravelSweetAlert::class,
 
     ],
 

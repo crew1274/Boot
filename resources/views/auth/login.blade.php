@@ -53,7 +53,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-sign-in" aria-hidden="true"> @lang('home.login')</i>
                                 </button>
-
+<input type="hidden" name="_token" value="{!! csrf_token() !!}">
                                 <a class="btn btn-link" href="{{ url('/password/reset') }}">
                                     @lang('home.forget')?
                                 </a>

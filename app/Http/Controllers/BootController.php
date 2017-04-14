@@ -10,6 +10,8 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 use App\Boot_setting;
 use App\Code;
 
+use Riazxrazor\LaravelSweetAlert\LaravelSweetAlert;
+
 class BootController extends Controller
 {
     /**
@@ -55,7 +57,8 @@ class BootController extends Controller
             'circuit' => 'bail|required|integer|min:1|max:72|unique:boot_settings,circuit',
         ]);
         Boot_Setting::create($request->all());
-        return redirect('/')->with('success','設定新增成功!');
+        LaravelSweetAlert::setMessageSuccess(trans('boot.create_success'));
+        return redirect('/');
     }
 
     /**
