@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        
     ];
 
     /**
@@ -24,9 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->exec('python3 ')->everyMinute()
-        ->withoutOverlapping()->appendOutputTo($filePath)->pingBefore($url);
-
+        $schedule->command('inspire')->everyMinute()->appendOutputTo('log.txt');;
     }
 
     /**
