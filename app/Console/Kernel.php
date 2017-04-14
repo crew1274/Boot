@@ -24,8 +24,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->exec('python3 ')->everyMinute()
+        ->withoutOverlapping()->appendOutputTo($filePath)->pingBefore($url);
+
     }
 
     /**

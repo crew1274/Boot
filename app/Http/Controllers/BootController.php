@@ -70,16 +70,31 @@ class BootController extends Controller
     public function show($id)
     {
         $setting = Boot_setting::find($id);
-        $setting_id= $setting -> id ;
+        $setting_id= $setting->id;
         $output = array();
-        //驗證程式的資料夾路徑
+        //資料夾路徑
         $python_dir=env("PYTHON_DIR", "~/work/");
-        //驗證程式的檔名
+        //驗證程式檔名
         $vaild=env("PYTHON_VAILD", "vaild.py");
         //執行驗證程式
         exec("python3 '{$python_dir}''{$vaild}' '{$setting_id}' ", $output);
         $output=last($output);
-        return redirect('/')->with('success',$output);
+
+        //開發環境跳過驗證設定
+        if(env('APP_ENV', 'production') == 'local')
+        {$output = 'done';}
+
+        if($output == 'done')
+        {
+        $setting = Boot_setting::find($id);
+        $setting -> vaild = '1';
+        $setting-> save();
+        LaravelSweetAlert::setMessageSuccess(trans('boot.valid_success'));
+        }
+        else{
+            LaravelSweetAlert::setMessageError("boot.valid_error");
+        }
+        return redirect('/');
     }
 
     /**
@@ -115,7 +130,8 @@ class BootController extends Controller
        $token = Boot_setting::find($id);
        $token-> vaild = '0';
        $token -> save();
-       return redirect('/')->with('success','開機設定已更新!');
+       LaravelSweetAlert::setMessageSuccess(trans('boot.edit_success'));
+       return redirect('/');
     }
 
     /**
@@ -127,6 +143,7 @@ class BootController extends Controller
     public function destroy($id)
     {
         Boot_setting::find($id)->delete();
-        return redirect('/')->with('success','開機設定已刪除!');
+        LaravelSweetAlert::setMessageSuccess(trans('boot.delete_success'));
+        return redirect('/');
     }
 }

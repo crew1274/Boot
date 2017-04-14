@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    @LaravelSweetAlertCSS
 
     <!-- Scripts -->
     <script>
@@ -109,5 +110,6 @@
     </div>
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    @LaravelSweetAlertJS
 </body>
 </html>
