@@ -22,4 +22,5 @@ return [
     'valid' => 'Validate',
     'name' => 'Name',
     'confirm' => 'Confirm Password',
+    'network' => 'Network Setting',
 ];

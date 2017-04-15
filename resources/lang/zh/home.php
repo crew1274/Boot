@@ -22,4 +22,5 @@ return [
     'valid' => '驗證設定',
     'name' => '名稱',
     'confirm' => '確認密碼',
+    'network' => '網路設定',
 ]; 
