@@ -1,7 +1,8 @@
 @extends('layouts.app')
-
+@push('css')
+@LaravelSweetAlertCSS
+@endpush
 @section('content')
-{{ csrf_field() }}
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
@@ -65,3 +66,6 @@
     </div>
 </div>
 @stop
+@push('javascript')
+@LaravelSweetAlertJS
+@endpush

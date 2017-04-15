@@ -8,7 +8,6 @@
                 <div class="panel-heading">@lang('boot.new')</div>
                 <div class="panel-body">
                         {!! Form::open(array('route' => 'boot.store','method'=>'POST')) !!}
-                        {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('model') ? ' has-error' : '' }}">
                             <label for="model" class="col-md-4 cntrol-label">@lang('boot.model') :</label>

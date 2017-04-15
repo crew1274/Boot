@@ -8,8 +8,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
-    <meta name="author" content="">
-    <meta name="description" content="">
+    <meta name="author" content="黃偉鑫">
+    <meta name="description" content="客戶端網頁">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -18,7 +18,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-    @LaravelSweetAlertCSS
+    @stack('css')
 
     <!-- Scripts -->
     <script>
@@ -26,6 +26,8 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+
+{{ csrf_field() }}
 </head>
 <body>
         <nav class="navbar navbar-default navbar-static-top">
@@ -54,6 +56,40 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
+
+                    <!-- Network -->
+                    <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-wifi fa-fw"></i> @lang('home.network') <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu ">
+                        <li>
+                            <a href="{{ url('#') }}">
+                                <div data-toggle="modal" data-target="#wifi" data-whatever="@wifi">
+                                 @lang('network.wifi')
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="{{ url('#') }}">
+                                <div data-toggle="modal" data-target="#staticip" data-whatever="@staticip">
+                                @lang('network.staticip')
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="{{ url('#') }}" >
+                                <div data-toggle="modal" data-target="#dhcp" data-whatever="@dhcp">
+                                @lang('network.dhcp')
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                    <!-- Language -->
                     <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-globe fa-fw"></i> @lang('home.language') <span class="caret"></span>
@@ -91,7 +127,7 @@
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            @lang('home.logout')
+                                            <i class="fa fa-sign-out" aria-hidden="true"></i> @lang('home.logout')
                                         </a>
 
                                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
@@ -105,12 +141,11 @@
                 </div>
             </div>
         </nav>
-
         @yield('content')
-    </div>
+        @include('layouts.network')
     <!-- Scripts -->
     <script src="/js/app.js"></script>
     <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-    @LaravelSweetAlertJS
+    @stack('javascript')
 </body>
 </html>

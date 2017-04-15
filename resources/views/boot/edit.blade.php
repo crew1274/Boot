@@ -8,7 +8,6 @@
                 <div class="panel-heading">@lang('boot.edit')</div>
                 <div class="panel-body">
                         {!! Form::model($setting, ['method' => 'PATCH','route' => ['boot.update', $setting->id]]) !!}
-                        {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('model') ? ' has-error' : '' }}">
                             <label for="model" class="col-md-4 cntrol-label">@lang('boot.model') :</label>
