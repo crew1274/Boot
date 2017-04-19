@@ -26,6 +26,13 @@ class HomeController extends Controller
         else {return view('welcome');}
     }
 
+    public function version()
+     {
+
+        LaravelSweetAlert::setMessageSuccess(trans('home.check'));
+        return redirect('/');
+     }
+
     public function link(Request $request)
      {
         $ip = $request -> get('ip');

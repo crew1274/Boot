@@ -14,6 +14,9 @@
 Auth::routes();
 Route::get('/', 'HomeController@index');
 
+//更新檢查
+Route::get('/version', 'HomeController@version');
+
 //開機設定路徑
 Route::resource('boot','BootController');
 
