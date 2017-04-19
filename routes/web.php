@@ -30,6 +30,8 @@ Route::group(['prefix' => 'network'], function () {
     Route::post('dhcp', ['as' => 'network/dhcp', 'uses' => 'NetworkController@dhcp']);
     Route::get('/', 'NetworkController@index');
 });
-
+//server ip & domain update
+Route::post('link', ['as' => 'link', 'uses' => 'HomeController@link']);
+Route::post('time', ['as' => 'time', 'uses' => 'HomeController@time']);
 //測試路徑
 Route::get('test', function(){return view('test'); });

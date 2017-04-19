@@ -65,7 +65,7 @@
         <i class="fa fa-plus" aria-hidden="true">  @lang('home.create')</a></i>
     </div>
 </div>
-@stop
+@endsection
 @push('javascript')
 @LaravelSweetAlertJS
 @endpush

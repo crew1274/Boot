@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-//支援auth
+use Riazxrazor\LaravelSweetAlert\LaravelSweetAlert;
 use Illuminate\Support\Facades\Auth;
 use App\Boot_setting;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -24,4 +25,23 @@ class HomeController extends Controller
         }
         else {return view('welcome');}
     }
+
+    public function link(Request $request)
+     {
+        $ip = $request -> get('ip');
+        $domain = $request -> get('domain');
+        $port = $request -> get('port');
+        $path = $request -> get('path');
+
+        LaravelSweetAlert::setMessageSuccess(trans($path));
+        return redirect('/');
+     }
+
+     public function time(Request $request)
+     {
+        $second = $request -> get('second');
+
+        LaravelSweetAlert::setMessageSuccess(trans($second));
+        return redirect('/');
+     }
 }

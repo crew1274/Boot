@@ -46,6 +46,9 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
+                    <a class="navbar-brand" href="{{ url('/version') }}">
+                    <small>Version:{{ config('app.version', '1.0.0') }}</small>
+                    </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -56,6 +59,31 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
+
+                    <!-- Server -->
+                    <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-server fa-fw"></i> @lang('home.server') <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu ">
+                        <li>
+                            <a href="{{ url('#') }}">
+                                <div data-toggle="modal" data-target="#link" data-whatever="@link">
+                                 <i class="fa fa-link" aria-hidden="true"></i> @lang('server.link')
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="{{ url('#') }}">
+                                <div data-toggle="modal" data-target="#time" data-whatever="@time">
+                                <i class="fa fa-clock-o" aria-hidden="true"></i> @lang('server.time')
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
 
                     <!-- Network -->
                     <li class="dropdown">
@@ -143,6 +171,7 @@
         </nav>
         @yield('content')
         @include('layouts.network')
+        @include('layouts.server')
     <!-- Scripts -->
     <script src="/js/app.js"></script>
     <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
