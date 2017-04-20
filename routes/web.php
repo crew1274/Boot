@@ -34,6 +34,8 @@ Route::group(['prefix' => 'network'], function () {
     Route::get('/', 'NetworkController@index');
 });
 //server ip & domain update
+//Route::get('/link', 'HomeController@getlink');
+//Route::get('/time', 'HomeController@gettime');
 Route::post('link', ['as' => 'link', 'uses' => 'HomeController@link']);
 Route::post('time', ['as' => 'time', 'uses' => 'HomeController@time']);
 //測試路徑

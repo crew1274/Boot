@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
-
+use Illuminate\Support\Facades\Storage;
 use App\Boot_setting;
 use App\Code;
 
@@ -38,7 +38,9 @@ class BootController extends Controller
     public function create()
     {
         $models= Code::pluck('model', 'model');
-        return view('boot.create',compact('models'));
+        $config = Storage::get('config.json');
+        $config = json_decode($config, true);
+        return view('boot.create',compact('models','config'));
     }
 
     /**
@@ -107,7 +109,9 @@ class BootController extends Controller
     {
         $models= Code::pluck('model', 'model');
         $setting = Boot_setting::find($id);
-        return view('boot.edit',compact('setting','models'));
+        $config = Storage::get('config.json');
+        $config = json_decode($config, true);
+        return view('boot.edit',compact('setting','models','config'));
     }
 
     /**

@@ -16,4 +16,9 @@ return [
     'unique' => '迴路不可重複',
     'vaild_info' =>'新增設定後請先驗證設定',
     'vaild_info_edit'=> '修改設定後請先驗證設定',
+    'create_success' => '新增成功',
+    'valid_error' => '驗證成功',
+    'valid_success' => '驗證失敗',
+    'edit_success' => '修改成功',
+    'delete_success' => '刪除成功',
     ];
