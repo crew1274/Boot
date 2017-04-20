@@ -23,4 +23,5 @@ return [
     'name' => '名稱',
     'confirm' => '確認密碼',
     'network' => '網路設定',
+    'server' => '伺服器',
 ]; 

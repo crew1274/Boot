@@ -21,7 +21,9 @@ class HomeController extends Controller
         if (Auth::check()) 
         {
         $setting= Boot_setting::orderBy('circuit','ASC')->get();
-        return view('home', compact('setting'));
+        $config = Storage::get('config.json');
+        $config = json_decode($config, true);
+        return view('home', compact('setting','config'));
         }
         else {return view('welcome');}
     }
@@ -39,16 +41,29 @@ class HomeController extends Controller
         $domain = $request -> get('domain');
         $port = $request -> get('port');
         $path = $request -> get('path');
-
-        LaravelSweetAlert::setMessageSuccess(trans($path));
+        $config = Storage::get('config.json');
+        $config = json_decode($config, true);
+        $config['ip'] = $ip;
+        $config['domain'] = $domain;
+        $config['port'] = $port;
+        $config['path'] = $path;
+        $config = json_encode($config, true);
+        Storage::delete('config.json');
+        Storage::put('config.json', $config);
+        LaravelSweetAlert::setMessageSuccess(trans('home.config_server_successful'));
         return redirect('/');
      }
 
      public function time(Request $request)
      {
-        $second = $request -> get('second');
-
-        LaravelSweetAlert::setMessageSuccess(trans($second));
+        $gap = $request -> get('gap');
+        $config = Storage::get('config.json');
+        $config = json_decode($config, true);
+        $config['gap']=$gap;
+        $config = json_encode($config, true);
+        Storage::delete('config.json');
+        Storage::put('config.json', $config);
+        LaravelSweetAlert::setMessageSuccess(trans('home.config_gap_successful'));
         return redirect('/');
      }
 }

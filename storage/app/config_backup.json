@@ -1,0 +1,7 @@
+{
+  "gap": "5",
+  "domain": "www.test.com.tw",
+  "ip": "127.0.0.1",
+  "path": "test/test",
+  "port": "8080"
+}

@@ -23,4 +23,5 @@ return [
     'name' => 'Name',
     'confirm' => 'Confirm Password',
     'network' => 'Network Setting',
+    'server' => 'Server',
 ];
