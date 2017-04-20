@@ -174,7 +174,6 @@
         @include('layouts.server')
     <!-- Scripts -->
     <script src="/js/app.js"></script>
-    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
     @stack('javascript')
 </body>
 </html>
