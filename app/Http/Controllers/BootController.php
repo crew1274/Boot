@@ -9,9 +9,7 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 use Illuminate\Support\Facades\Storage;
 use App\Boot_setting;
 use App\Code;
-
 use Riazxrazor\LaravelSweetAlert\LaravelSweetAlert;
-
 class BootController extends Controller
 {
     /**
@@ -81,7 +79,6 @@ class BootController extends Controller
         //執行驗證程式
         exec("python3 '{$python_dir}''{$vaild}' '{$setting_id}' ", $output);
         $output=last($output);
-
         //開發環境跳過驗證設定
         if(env('APP_ENV', 'production') == 'local')
         {$output = 'done';}

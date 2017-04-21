@@ -54,7 +54,7 @@
                                     <i class="fa fa-sign-in" aria-hidden="true"> @lang('home.login')</i>
                                 </button>
                                 <a class="btn btn-link" href="{{ url('/password/reset') }}">
-                                    @lang('home.forget')?
+                                @lang('home.forget')?
                                 </a>
                             </div>
                         </div>

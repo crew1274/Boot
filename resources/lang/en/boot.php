@@ -17,7 +17,7 @@ return [
     'vaild_info' =>'新增設定後請先驗證設定',
     'vaild_info_edit'=> '修改設定後請先驗證設定',
     'create_success' => 'Create Success',
-    'valid_error' => 'Valid Success',
+    'valid_error' => 'Valid Error',
     'valid_success' => 'Valid Success',
     'edit_success' => 'Edit Success',
     'delete_success' => 'Delete Success',

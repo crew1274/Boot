@@ -26,7 +26,6 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
-
 {{ csrf_field() }}
 </head>
 <body>
@@ -67,18 +66,14 @@
                     </a>
                     <ul class="dropdown-menu ">
                         <li>
-                            <a href="{{ url('#') }}">
-                                <div data-toggle="modal" data-target="#link" data-whatever="@link">
-                                 <i class="fa fa-link" aria-hidden="true"></i> @lang('server.link')
-                                </div>
+                            <a href="{{ url('link') }}">
+                            <i class="fa fa-link" aria-hidden="true"></i> @lang('server.link')                           
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="{{ url('#') }}">
-                                <div data-toggle="modal" data-target="#time" data-whatever="@time">
-                                <i class="fa fa-clock-o" aria-hidden="true"></i> @lang('server.time')
-                                </div>
+                            <a href="{{ url('time') }}">
+                            <i class="fa fa-clock-o" aria-hidden="true"></i> @lang('server.time')
                             </a>
                         </li>
                     </ul>
@@ -171,7 +166,6 @@
         </nav>
         @yield('content')
         @include('layouts.network')
-        @include('layouts.server')
     <!-- Scripts -->
     <script src="/js/app.js"></script>
     @stack('javascript')

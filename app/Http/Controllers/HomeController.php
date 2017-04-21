@@ -35,6 +35,20 @@ class HomeController extends Controller
         return redirect('/');
      }
 
+     public function getlink()
+     {
+        $config = Storage::get('config.json');
+        $config = json_decode($config, true);
+        return view('server.link', compact('config'));
+     }
+
+     public function gettime()
+     {
+        $config = Storage::get('config.json');
+        $config = json_decode($config, true);
+        return view('server.time', compact('config'));
+     }
+
     public function link(Request $request)
      {
         $ip = $request -> get('ip');
