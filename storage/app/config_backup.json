@@ -1,7 +1,9 @@
 {
+  "isRUN":false,
   "gap": "5",
-  "domain": "www.test.com.tw",
+  "domain": "http://www.test.com",
   "ip": "127.0.0.1",
-  "path": "test/test",
-  "port": "8080"
+  "path": "",
+  "port": "",
+  "key": "dae"
 }

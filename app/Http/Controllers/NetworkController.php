@@ -16,7 +16,7 @@ class NetworkController extends Controller
         $dns = $request -> get('dns');
 
         //資料夾路徑
-        $python_dir=env("PYTHON_DIR", "~/work/");
+        $python_dir=env("PYTHON_DIR", "/home/fa/web/python");
         //驗證程式檔名
         $network=env("PYTHON_NETWORK", "network.py");
         //輸出

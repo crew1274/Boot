@@ -30,8 +30,14 @@ class HomeController extends Controller
 
     public function version()
      {
+         /**輸入版本判斷邏輯
 
-        LaravelSweetAlert::setMessageSuccess(trans('home.check'));
+         */
+        LaravelSweetAlert::setMessage([
+                        'title' => '版本已是最新!',
+                        'type' => 'info',
+                        'showConfirmButton' =>false
+                    ]);
         return redirect('/');
      }
 
@@ -51,33 +57,51 @@ class HomeController extends Controller
 
     public function link(Request $request)
      {
+        $this->validate($request, [
+            'ip' => 'ip',
+            'domain' => 'url',
+            'port' => 'integer',
+            'path' => 'string',
+            'key' => 'string|confirmed',      
+    ]);
         $ip = $request -> get('ip');
         $domain = $request -> get('domain');
         $port = $request -> get('port');
         $path = $request -> get('path');
+        $key = $request -> get('key');
         $config = Storage::get('config.json');
         $config = json_decode($config, true);
         $config['ip'] = $ip;
         $config['domain'] = $domain;
         $config['port'] = $port;
         $config['path'] = $path;
+        $config['key'] = $key;
         $config = json_encode($config, true);
         Storage::delete('config.json');
         Storage::put('config.json', $config);
-        LaravelSweetAlert::setMessageSuccess(trans('home.config_server_successful'));
+        LaravelSweetAlert::setMessageSuccess(trans('server.config_server_successful'));
         return redirect('/');
      }
 
      public function time(Request $request)
      {
-        $gap = $request -> get('gap');
+        $this->validate($request, [
+            'gap' => 'required|integer',
+        ]);
         $config = Storage::get('config.json');
         $config = json_decode($config, true);
-        $config['gap']=$gap;
+        $config['gap']=$request -> get('gap');
+        if( $request->has('run') )
+            {
+        $config['isRUN']= true;
+        }
+        else {
+        $config['isRUN']= false;
+        }
         $config = json_encode($config, true);
         Storage::delete('config.json');
         Storage::put('config.json', $config);
-        LaravelSweetAlert::setMessageSuccess(trans('home.config_gap_successful'));
+        LaravelSweetAlert::setMessageSuccess(trans('server.config_server_successful'));
         return redirect('/');
      }
 }
