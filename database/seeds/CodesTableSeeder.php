@@ -20,120 +20,140 @@ class CodesTableSeeder extends Seeder
        DB::table('codes')->insert([
           'model' => 'PM200-A',
           'code' => '4,1',
+          'type' => '電表',
           'created_at' => date("Y-m-d H:i:s"),
           'updated_at' => date("Y-m-d H:i:s"),
       ]);
       DB::table('codes')->insert([
          'model' => 'PM200-B',
          'code' => '4,2',
+         'type' => '電表',
          'created_at' => date("Y-m-d H:i:s"),
          'updated_at' => date("Y-m-d H:i:s"),
      ]);
      DB::table('codes')->insert([
         'model' => 'PM200-C',
         'code' => '4,3',
+        'type' => '電表',
         'created_at' => date("Y-m-d H:i:s"),
         'updated_at' => date("Y-m-d H:i:s"),
     ]);
     DB::table('codes')->insert([
        'model' => 'PM200-STD',
        'code' => '4,4',
+       'type' => '電表',
        'created_at' => date("Y-m-d H:i:s"),
        'updated_at' => date("Y-m-d H:i:s"),
     ]);
     DB::table('codes')->insert([
       'model' => 'PM210-4-A',
       'code' => '4,5',
+      'type' => '電度表',
       'created_at' => date("Y-m-d H:i:s"),
       'updated_at' => date("Y-m-d H:i:s"),
     ]);
     DB::table('codes')->insert([
       'model' => 'PM210-4-B',
       'code' => '4,6',
+      'type' => '電度表',
       'created_at' => date("Y-m-d H:i:s"),
       'updated_at' => date("Y-m-d H:i:s"),
     ]);
     DB::table('codes')->insert([
       'model' => 'PM210-4-C',
       'code' => '4,7',
+      'type' => '電度表',
       'created_at' => date("Y-m-d H:i:s"),
       'updated_at' => date("Y-m-d H:i:s"),
     ]);
     DB::table('codes')->insert([
       'model' => 'PM210-4-STD',
       'code' => '4,8',
+      'type' => '電度表',
       'created_at' => date("Y-m-d H:i:s"),
       'updated_at' => date("Y-m-d H:i:s"),
     ]);
     DB::table('codes')->insert([
       'model' => 'PM210-A',
       'code' => '4,9',
+      'type' => '電度表',
       'created_at' => date("Y-m-d H:i:s"),
       'updated_at' => date("Y-m-d H:i:s"),
     ]);
     DB::table('codes')->insert([
       'model' => 'PM210-B',
       'code' => '4,10',
+      'type' => '電度表',
       'created_at' => date("Y-m-d H:i:s"),
       'updated_at' => date("Y-m-d H:i:s"),
     ]);
     DB::table('codes')->insert([
       'model' => 'PM210-C',
       'code' => '4,11',
+      'type' => '電度表',
       'created_at' => date("Y-m-d H:i:s"),
       'updated_at' => date("Y-m-d H:i:s"),
     ]);
     DB::table('codes')->insert([
       'model' => 'PM210-P-A',
       'code' => '4,12',
+      'type' => '電度表',
       'created_at' => date("Y-m-d H:i:s"),
       'updated_at' => date("Y-m-d H:i:s"),
     ]);
     DB::table('codes')->insert([
       'model' => 'PM210-P-B',
       'code' => '4,13',
+      'type' => '電度表',
       'created_at' => date("Y-m-d H:i:s"),
       'updated_at' => date("Y-m-d H:i:s"),
     ]);
     DB::table('codes')->insert([
       'model' => 'PM210-P-C',
       'code' => '4,14',
+      'type' => '電度表',
       'created_at' => date("Y-m-d H:i:s"),
       'updated_at' => date("Y-m-d H:i:s"),
     ]);
     DB::table('codes')->insert([
       'model' => 'PM210-P-STD',
       'code' => '4,15',
+      'type' => '電度表',
       'created_at' => date("Y-m-d H:i:s"),
       'updated_at' => date("Y-m-d H:i:s"),
     ]);
     DB::table('codes')->insert([
       'model' => 'PM210-STD',
       'code' => '4,16',
+      'type' => '電度表',
       'created_at' => date("Y-m-d H:i:s"),
       'updated_at' => date("Y-m-d H:i:s"),
     ]);
     DB::table('codes')->insert([
       'model' => 'PM210-X-A',
       'code' => '4,17',
+      'type' => '電度表',
       'created_at' => date("Y-m-d H:i:s"),
       'updated_at' => date("Y-m-d H:i:s"),
     ]);
     DB::table('codes')->insert([
       'model' => 'PM210-X-B',
       'code' => '4,18',
+      'type' => '電度表',
       'created_at' => date("Y-m-d H:i:s"),
       'updated_at' => date("Y-m-d H:i:s"),
     ]);
     DB::table('codes')->insert([
       'model' => 'PM210-X-C',
       'code' => '4,19',
+      'type' => '電度表',
       'created_at' => date("Y-m-d H:i:s"),
       'updated_at' => date("Y-m-d H:i:s"),
     ]);
     DB::table('codes')->insert([
       'model' => 'PM210-X-STD',
       'code' => '4,20',
+      'type' => '電度表',
       'created_at' => date("Y-m-d H:i:s"),
       'updated_at' => date("Y-m-d H:i:s"),
     ]);

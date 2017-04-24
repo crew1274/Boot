@@ -17,6 +17,7 @@ class CreateCodesTable extends Migration
             $table->increments('id');
             $table->string('model')->comment('機型名稱');
             $table->string('code')->unique()->comment('代號');
+            $table->string('type')->nullable()->comment('機型名稱');
             $table->timestamps();
         });
     }

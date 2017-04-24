@@ -20,6 +20,8 @@ Route::get('/version', 'HomeController@version');
 //開機設定路徑
 Route::resource('boot','BootController');
 
+Route::get('/type',['uses' =>'ApiController@type','as'=>'type']);
+
 //更換語系路徑
 Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@switchLang']);
 
