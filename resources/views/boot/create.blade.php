@@ -13,7 +13,7 @@
                         <select name="parent" id="parent" class="form-control">
                         <option value="電表">電表</option>
                         <option value="電度表">電度表</option></select>
-                         </div>
+                        </div>
                         <label for="model" class="col-md-4 cntrol-label"></label>
                         <div class="col-md-6">
                         <select name="model" id="model" class="form-control"> </select>                        
@@ -21,17 +21,16 @@
 
                             <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
                             <label for="address" class="col-md-4 control-label">@lang('boot.address') :</label>
-
                             <div class="col-md-6">
-                  {!! Form::text('address', null, array('placeholder' => '1~255','class' => 'form-control')) !!}
+            {!! Form::text('address', null, array('placeholder' => '1~255','class' => 'form-control')) !!}
                                 @if ($errors->has('address'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('address') }}</strong>
                                     </span>
                                 @endif
+                                <em>@lang('boot.unique')</em>
                             </div>
                         </div>
-
                         <div class="form-group{{ $errors->has('ch') ? ' has-error' : '' }}">
                             <label for="ch" class="col-md-4 control-label">@lang('boot.channel') :</label>
 
@@ -67,7 +66,7 @@
 
                             <div class="col-md-6">
                 {!! Form::text('circuit', null, array('placeholder' => '1~72','class' => 'form-control')) !!}
-                <em>@lang('boot.unique')</em>
+                
                                 @if ($errors->has('circuit'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('circuit') }}</strong>

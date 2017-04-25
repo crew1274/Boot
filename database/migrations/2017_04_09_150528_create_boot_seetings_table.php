@@ -16,10 +16,10 @@ class CreateBootSeetingsTable extends Migration
         Schema::create('boot_settings', function (Blueprint $table) {
             $table->increments('id');
             $table->string('model')->comment('機型名稱');
-            $table->integer('address')->comment('address');
+            $table->integer('address')->unique()->comment('位址');
             $table->integer('ch')->comment('channel');
             $table->integer('speed')->comment('baud rate');
-            $table->integer('circuit')->unique()->comment('迴路');
+            $table->integer('circuit')->comment('迴路');
             $table->boolean('vaild')->default(0)->comment('驗證');
             $table->integer('sync')->nullable()->comment('同步表位');
             $table->timestamps();

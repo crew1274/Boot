@@ -24,7 +24,7 @@ class BootController extends Controller
 
     public function index()
     {
-        $settings = Boot_setting::orderBy('circuit','ASC');
+        $settings = Boot_setting::orderBy('address','ASC');
         return view('boot.index',compact('settings'));
     }
 
@@ -51,10 +51,10 @@ class BootController extends Controller
     {
         $this->validate($request, [
             'model' => 'bail|required|string',
-            'address' => 'bail|required|integer|min:1|max:255',
+            'address' => 'bail|required|integer|min:1|max:255|unique:boot_settings,address',
             'ch' => 'bail|required|integer|min:1|max:15',
             'speed' => 'bail|required|integer',
-            'circuit' => 'bail|required|integer|min:1|max:72|unique:boot_settings,circuit',
+            'circuit' => 'bail|required|integer|min:1|max:72',
         ]);
         Boot_Setting::create($request->all());
         LaravelSweetAlert::setMessageSuccess(trans('boot.create_success'));
@@ -87,7 +87,7 @@ class BootController extends Controller
         {
         $setting = Boot_setting::find($id);
         $setting -> vaild = '1';
-        $setting-> save();
+        $setting -> save();
         LaravelSweetAlert::setMessageSuccess(trans('boot.valid_success'));
         }
         else{
@@ -122,10 +122,10 @@ class BootController extends Controller
     {
         $this->validate($request, [
          'model' => 'bail|required',
-         'address' => 'bail|required|integer|min:1|max:255',
+         'address' => 'bail|required|integer|min:1|max:255|unique:boot_settings,address,'.$id,
          'ch' => 'bail|required|integer|min:1|max:15',
          'speed' => 'bail|required',
-         'circuit' => 'bail|required|integer|min:1|max:72|unique:boot_settings,circuit,'.$id,
+         'circuit' => 'bail|required|integer|min:1|max:72',
        ]);
        Boot_setting::find($id)->update($request->all());
        $token = Boot_setting::find($id);
