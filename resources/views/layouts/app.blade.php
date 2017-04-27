@@ -7,7 +7,6 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
     <meta name="author" content="黃偉鑫">
     <meta name="description" content="客戶端網頁">
 
@@ -19,14 +18,6 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     @stack('css')
-
-    <!-- Scripts -->
-    <script>
-        window.Laravel = <?php echo json_encode([
-            'csrfToken' => csrf_token(),
-        ]); ?>
-    </script>
-{{ csrf_field() }}
 </head>
 <body>
         <nav class="navbar navbar-default navbar-static-top">
@@ -164,8 +155,8 @@
                 </div>
             </div>
         </nav>
-        @yield('content')
         @include('layouts.network')
+        @yield('content')
     <!-- Scripts -->
     <script src="/js/app.js"></script>
     @stack('javascript')
