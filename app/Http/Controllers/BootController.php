@@ -51,11 +51,22 @@ class BootController extends Controller
     {
         $this->validate($request, [
             'model' => 'bail|required|string',
-            'address' => 'bail|required|integer|min:1|max:255|unique:boot_settings,address',
+            'address' => 'bail|required|integer|min:1|max:255',
             'ch' => 'bail|required|integer|min:1|max:15',
             'speed' => 'bail|required|integer',
             'circuit' => 'bail|required|integer|min:1|max:72',
         ]);
+        $address=$request->address;
+        $settings=Boot_Setting::where('address',$address)->get();
+        foreach ($settings as $setting => $value)
+        {
+            if($request->ch == $value->ch && $request->circuit == $value->circuit)
+            {
+                LaravelSweetAlert::setMessageError(trans('boot.cteate_error'));
+                return redirect()->back();
+            }
+        }
+
         Boot_Setting::create($request->all());
         LaravelSweetAlert::setMessageSuccess(trans('boot.create_success'));
         return redirect('/');
@@ -91,7 +102,7 @@ class BootController extends Controller
         LaravelSweetAlert::setMessageSuccess(trans('boot.valid_success'));
         }
         else{
-            LaravelSweetAlert::setMessageError("boot.valid_error");
+            LaravelSweetAlert::setMessageError(trans('boot.valid_error'));
         }
         return redirect('/');
     }
