@@ -7,21 +7,23 @@
             <div class="panel panel-default">
                 <div class="panel-heading">@lang('boot.edit')</div>
                 <div class="panel-body">
-                        {!! Form::model($setting, ['method' => 'PATCH','route' => ['boot.update', $setting->id]]) !!}
+                {!! Form::model($setting, ['method' => 'PATCH','route' => ['boot.update', $setting->id]]) !!}
+                {{ csrf_field() }}
                         <label for="model" class="col-md-4 cntrol-label">@lang('boot.model') :</label>
                         <div class="col-md-6">
                         <select name="parent" id="parent" class="form-control">
-                        <option value="電表">電表</option>
-                        <option value="電度表">電度表</option></select>
+                        <option disabled selected value>@lang('boot.select')</option>
+                        <option value="多功能電表">@lang('boot.multi_phase_meter')</option>
+                        <option value="多迴路電表">@lang('boot.multi_circuit_meter')</option>
+                        <option value="other">@lang('boot.other')</option></select>
                         </div>
                         <label for="model" class="col-md-4 cntrol-label"></label>
                         <div class="col-md-6">
-                        <select name="model" id="model" class="form-control"> </select>                        
+                        <select name="model" id="model" class="form-control"></select>                        
                         </div>
 
                         <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
                             <label for="address" class="col-md-4 control-label">@lang('boot.address') :</label>
-
                             <div class="col-md-6">
                   {!! Form::text('address', null, array('placeholder' => '1~255','class' => 'form-control')) !!}
                                 @if ($errors->has('address'))

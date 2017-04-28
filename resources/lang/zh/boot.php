@@ -13,7 +13,7 @@ return [
     'delete' => '刪除',
     'valid' => '驗證設定',
     'new' => '新增設定',
-    'unique' => '迴路不可重複',
+    'unique' => '位址不可重複',
     'vaild_info' =>'新增設定後請先驗證設定',
     'vaild_info_edit'=> '修改設定後請先驗證設定',
     'create_success' => '新增成功',
@@ -21,4 +21,8 @@ return [
     'valid_success' => '驗證成功',
     'edit_success' => '修改成功',
     'delete_success' => '刪除成功',
+    'select' => '選擇類型',
+    'other' => '其他',
+    'multi_phase_meter' => '多功能電表',
+    'multi_circuit_meter' => '多迴路電表',
     ];

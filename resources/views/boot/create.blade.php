@@ -7,19 +7,19 @@
             <div class="panel panel-default">
                 <div class="panel-heading">@lang('boot.new')</div>
                 <div class="panel-body">
-                        {!! Form::open(array('route' => 'boot.store','method'=>'POST')) !!}
-                        {{ csrf_field() }}
+                {!! Form::open(array('route' => 'boot.store','method'=>'POST')) !!}
+                {{ csrf_field() }}
                         <label for="model" class="col-md-4 cntrol-label">@lang('boot.model') :</label>
                         <div class="col-md-6">
                         <select name="parent" id="parent" class="form-control">
                         <option disabled selected value>@lang('boot.select')</option>
-                        <option value="多功能電表">多功能電表</option>
-                        <option value="多迴路電表">多迴路電表</option>
-                        <option value="other">其他</option></select>
+                        <option value="多功能電表">@lang('boot.multi_phase_meter')</option>
+                        <option value="多迴路電表">@lang('boot.multi_circuit_meter')</option>
+                        <option value="other">@lang('boot.other')</option></select>
                         </div>
                         <label for="model" class="col-md-4 cntrol-label"></label>
                         <div class="col-md-6">
-                        <select name="model" id="model" class="form-control"> </select>                        
+                        <select name="model" id="model" class="form-control"></select> 
                         </div>
 
                             <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
