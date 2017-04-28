@@ -31,7 +31,6 @@
                             <input id='run' name="run" type="checkbox" data-toggle="toggle" data-width="100" @if ($config['isRUN'] == 1) checked  @endif value="run">                    
                             </div>
                         </div>
-
                         </div>
                         </div>
                         <div class="form-group">
@@ -39,7 +38,6 @@
                         <button type="submit" class="btn btn-primary">{{trans('server.apply')}} </button>
                         </div>
                         </div>
-
                     {!! Form::close() !!}
                 </div>
             </div>
