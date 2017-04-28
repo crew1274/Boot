@@ -14,4 +14,5 @@ return [
     'key' => '加密金鑰',
     'key_confirmation' => '加密金鑰確認',
     'run' => '啟動',
+    'latest_version' => '已是最新版本!'
     ];

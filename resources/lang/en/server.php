@@ -14,4 +14,5 @@ return [
     'key' => 'Encryption Key',
     'key_confirmation' => 'Encryption Key Confirmation',
     'run' => 'Start',
+    'latest_version' => 'Is Latest Vserion!'
     ];

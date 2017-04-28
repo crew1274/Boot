@@ -20,7 +20,7 @@ class HomeController extends Controller
     {
         if (Auth::check()) 
         {
-        $setting= Boot_setting::orderBy('circuit','ASC')->get();
+        $setting= Boot_setting::orderBy('address','ASC')->get();
         $config = Storage::get('config.json');
         $config = json_decode($config, true);
         return view('home', compact('setting','config'));
@@ -34,7 +34,7 @@ class HomeController extends Controller
 
          */
         LaravelSweetAlert::setMessage([
-                        'title' => '版本已是最新!',
+                        'title' => trans('server.latest_version'),
                         'type' => 'info',
                         'showConfirmButton' =>false
                     ]);
