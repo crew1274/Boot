@@ -20,7 +20,7 @@ class CreateBootSeetingsTable extends Migration
             $table->integer('ch')->comment('channel');
             $table->integer('speed')->comment('baud rate');
             $table->integer('circuit')->comment('迴路');
-            $table->boolean('vaild')->default(0)->comment('驗證');
+            $table->boolean('vaild')->default(1)->comment('驗證');
             $table->integer('sync')->nullable()->comment('同步表位');
             $table->timestamps();
         });

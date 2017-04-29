@@ -21,7 +21,7 @@
                                 <strong>{{ $errors->first('gap') }}</strong>
                                 </span>
                                 @endif
-                                <em>(單位:秒)</em>
+                                <em>({{trans('server.unit')}})</em>
                             </div>
                         </div>
 

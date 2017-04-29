@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@push('css')
+@LaravelSweetAlertCSS
+@endpush
 @section('content')
 <div class="container">
     <div class="row">
@@ -9,7 +11,8 @@
                 <div class="panel-body">
                 {!! Form::model($setting, ['method' => 'PATCH','route' => ['boot.update', $setting->id]]) !!}
                 {{ csrf_field() }}
-                        <label for="model" class="col-md-4 cntrol-label">@lang('boot.model') :</label>
+                        <div class="form-group{{ $errors->has('model') ? ' has-error' : '' }}">
+                        <label for="model" class="col-md-4 cntrol-label">@lang('boot.type') :</label>
                         <div class="col-md-6">
                         <select name="parent" id="parent" class="form-control">
                         <option disabled selected value>@lang('boot.select')</option>
@@ -19,7 +22,13 @@
                         </div>
                         <label for="model" class="col-md-4 cntrol-label"></label>
                         <div class="col-md-6">
-                        <select name="model" id="model" class="form-control"></select>                        
+                        <select name="model" id="model" class="form-control"></select>
+                        @if ($errors->has('model'))
+                            <span class="help-block">
+                            <strong>{{ $errors->first('model') }}</strong>
+                            </span>
+                        @endif
+                        </div>
                         </div>
 
                         <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
@@ -31,7 +40,6 @@
                                         <strong>{{ $errors->first('address') }}</strong>
                                     </span>
                                 @endif
-                                <em>@lang('boot.unique')</em>
                             </div>
                         </div>
 
@@ -56,7 +64,7 @@
                 Form::select('speed', array('1200' => '1200'
                 , '2400' => '2400'
                 , '4800' => '4800'
-                , '9600' => '9600'),null,['class'=>'form-control'])!!}
+                , '9600' => '9600'),'9600',['class'=>'form-control'])!!}
                                 @if ($errors->has('speed'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('speed') }}</strong>
@@ -99,6 +107,7 @@
 </div>
 @endsection
 @push('javascript')
+@LaravelSweetAlertJS
 <script>
 $('#parent').change(function(e) {
     console.log('change')

@@ -14,5 +14,6 @@ return [
     'key' => 'Encryption Key',
     'key_confirmation' => 'Encryption Key Confirmation',
     'run' => 'Start',
-    'latest_version' => 'Already Latest Vserion!'
+    'latest_version' => 'Already Latest Vserion!',
+    'unit' => 'Unit:Second',
     ];

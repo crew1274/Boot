@@ -36,9 +36,7 @@ class BootController extends Controller
     public function create()
     {
         $models= Code::pluck('model', 'model');
-        $config = Storage::get('config.json');
-        $config = json_decode($config, true);
-        return view('boot.create',compact('models','config'));
+        return view('boot.create',compact('models'));
     }
 
     /**
@@ -62,7 +60,7 @@ class BootController extends Controller
         {
             if($request->ch == $value->ch && $request->circuit == $value->circuit)
             {
-                LaravelSweetAlert::setMessageError(trans('boot.cteate_error'));
+                LaravelSweetAlert::setMessageError(trans('boot.create_error'));
                 return redirect()->back();
             }
         }
@@ -117,9 +115,7 @@ class BootController extends Controller
     {
         $models= Code::pluck('model', 'model');
         $setting = Boot_setting::find($id);
-        $config = Storage::get('config.json');
-        $config = json_decode($config, true);
-        return view('boot.edit',compact('setting','models','config'));
+        return view('boot.edit',compact('setting','models'));
     }
 
     /**
@@ -133,15 +129,27 @@ class BootController extends Controller
     {
         $this->validate($request, [
          'model' => 'bail|required',
-         'address' => 'bail|required|integer|min:1|max:255|unique:boot_settings,address,'.$id,
+         'address' => 'bail|required|integer|min:1|max:255',
          'ch' => 'bail|required|integer|min:1|max:15',
          'speed' => 'bail|required',
          'circuit' => 'bail|required|integer|min:1|max:72',
        ]);
+       $address=$request->address;
+        $settings=Boot_Setting::where('address',$address)->get();
+       foreach ($settings as $setting => $value)
+        {
+            if($request->ch == $value->ch && $request->circuit == $value->circuit && $id != $value->id)
+                    {
+                        LaravelSweetAlert::setMessageError(trans('boot.create_error'));
+                        return redirect()->back();
+                    }
+        }
        Boot_setting::find($id)->update($request->all());
+       /*
        $token = Boot_setting::find($id);
        $token-> vaild = '0';
        $token -> save();
+       */
        LaravelSweetAlert::setMessageSuccess(trans('boot.edit_success'));
        return redirect('/');
     }

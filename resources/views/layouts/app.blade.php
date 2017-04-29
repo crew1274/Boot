@@ -4,17 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="author" content="黃偉鑫">
     <meta name="description" content="客戶端網頁">
-
     <title>{{ config('app.name', 'Laravel') }}</title>
-
     <!-- Icon -->
     <link rel="icon" href="{{ asset("favicon.ico") }}" type="image/x-icon" />
-
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     @stack('css')
@@ -36,9 +32,11 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
+                    @if (Auth::check())
                     <a class="navbar-brand" href="{{ url('/version') }}">
                     <small>Version:{{ config('app.version', '1.0.0') }}</small>
                     </a>
+                    @endif
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -49,7 +47,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
-
+                    @if (Auth::check())
                     <!-- Server -->
                     <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -69,7 +67,6 @@
                         </li>
                     </ul>
                 </li>
-
 
                     <!-- Network -->
                     <li class="dropdown">
@@ -102,6 +99,7 @@
                         </li>
                     </ul>
                 </li>
+                @endif
 
                     <!-- Language -->
                     <li class="dropdown">
