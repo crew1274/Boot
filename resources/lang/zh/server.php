@@ -16,4 +16,6 @@ return [
     'run' => '啟動',
     'latest_version' => '已是最新版本!',
     'unit' => '單位:秒',
+    'record_gap' => '用電紀錄回傳',
+    'config_gap' => '硬體狀態回傳間隔',
     ];

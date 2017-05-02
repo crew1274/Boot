@@ -12,13 +12,26 @@
                 <div class="panel-body">
                 {!! Form::open(array('route' => 'time','method'=>'POST')) !!}
                 {{ csrf_field() }}
-                        <div class="form-group{{ $errors->has('gap') ? ' has-error' : '' }}">
-                            <label for="gap" class="col-md-4 control-label">{{trans('server.second')}}:</label>
+                        <div class="form-group{{ $errors->has('record_gap') ? ' has-error' : '' }}">
+                            <label for="record_gap" class="col-md-4 control-label">{{trans('server.record_gap')}}:</label>
                             <div class="col-md-6">
-                            {!! Form::text('gap', $config['gap'], array('placeholder' => trans('server.second'),'class' => 'form-control')) !!}
-                                @if ($errors->has('gap'))
+                            {!! Form::text('record_gap', $config['record_gap'], array('placeholder' => trans('server.record_gap'),'class' => 'form-control')) !!}
+                                @if ($errors->has('record_gap'))
                                 <span class="help-block">
-                                <strong>{{ $errors->first('gap') }}</strong>
+                                <strong>{{ $errors->first('record_gap') }}</strong>
+                                </span>
+                                @endif
+                                <em>({{trans('server.unit')}})</em>
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('config_gap') ? ' has-error' : '' }}">
+                            <label for="config_gap" class="col-md-4 control-label">{{trans('server.config_gap')}}:</label>
+                            <div class="col-md-6">
+                            {!! Form::text('config_gap', $config['config_gap'], array('placeholder' => trans('server.config_gap'),'class' => 'form-control')) !!}
+                                @if ($errors->has('config_gap'))
+                                <span class="help-block">
+                                <strong>{{ $errors->first('config_gap') }}</strong>
                                 </span>
                                 @endif
                                 <em>({{trans('server.unit')}})</em>

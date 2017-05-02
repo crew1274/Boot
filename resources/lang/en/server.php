@@ -16,4 +16,6 @@ return [
     'run' => 'Start',
     'latest_version' => 'Already Latest Vserion!',
     'unit' => 'Unit:Second',
+    'record_gap' => 'Energy Consumption Return Period',
+    'config_gap' => 'Hardware Information Return Period',
     ];

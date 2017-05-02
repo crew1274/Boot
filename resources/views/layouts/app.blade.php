@@ -76,14 +76,6 @@
                     <ul class="dropdown-menu ">
                         <li>
                             <a href="{{ url('#') }}">
-                                <div data-toggle="modal" data-target="#wifi" data-whatever="@wifi">
-                                 @lang('network.wifi')
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="{{ url('#') }}">
                                 <div data-toggle="modal" data-target="#staticip" data-whatever="@staticip">
                                 @lang('network.staticip')
                                 </div>

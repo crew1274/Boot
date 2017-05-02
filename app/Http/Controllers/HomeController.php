@@ -86,11 +86,13 @@ class HomeController extends Controller
      public function time(Request $request)
      {
         $this->validate($request, [
-            'gap' => 'required|integer',
+            'record_gap' => 'required|integer',
+            'config_gap' => 'required|integer',
         ]);
         $config = Storage::get('config.json');
         $config = json_decode($config, true);
-        $config['gap']=$request -> get('gap');
+        $config['record_gap']=$request -> get('record_gap');
+        $config['config_gap']=$request -> get('config_gap');
         if( $request->has('run') )
             {
         $config['isRUN']= true;
