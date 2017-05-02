@@ -6,9 +6,12 @@
 [![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
 [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 <br>
+<code>$ cd /var/www/html</code>
+<code>$ git clone https://github.com/crew1274/web</code>
+<code>$ cd web</code>
 <code>$ composer install</code>     
 <code>$ cp .env.example .env</code>     
-check .env      
+檢查 .env的設定，預設使用sqlite3      
 <code>$ php artisan key:generate</code>     
 <code>$ php artisan migrate --seed</code>           
 <code>$ cp storage/app/config_backup.json storage/app/config.json</code>      
