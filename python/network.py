@@ -3,14 +3,11 @@ if sys.platform != 'linux':
   print("Not linux")
   exit()
 import os
-
 setting = sys.argv[1]
 data = []
 #filename = "/etc/network/interfaces.settings"
 filename = "/etc/network/interfaces"
-
 if setting == 'wifi':
-
     # wifi
     ssid = sys.argv[2]
     psk = sys.argv[3]
@@ -23,13 +20,11 @@ if setting == 'wifi':
     data.append("iface wlan0 inet dhcp")
     data.append("wpa-ssid \"{0}\"".format(ssid))
     data.append("wpa-psk \"{0}\"".format(psk))
-
 elif setting == 'dhcp':
 #  dhcp
     data.append("auto lo eth0")
     data.append("iface lo inet loopback")
     data.append("iface eth0 inet dhcp")
-
 elif setting == 'staicip':
     address = sys.argv[2]
     netmask = sys.argv[3]
@@ -41,11 +36,8 @@ elif setting == 'staicip':
     data.append("address {0}".format(address))
     data.append("netmask {0}".format(netmask))
     data.append("gateway {0}".format(gateway))
-
-
 file = open(filename, "w", encoding='UTF-8')
 file.write('\n'.join(data))
 file.close()
-
 os.system('/etc/init.d/networking restart')
 print("done")

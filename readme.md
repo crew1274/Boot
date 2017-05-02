@@ -12,6 +12,7 @@
 <code>$ composer install</code>     
 <code>$ cp .env.example .env</code>     
 檢查 .env的設定，預設使用sqlite3      
+<code>$ toush database/database.sqlite</clode>      
 <code>$ php artisan key:generate</code>     
 <code>$ php artisan migrate --seed</code>           
 <code>$ cp storage/app/config_backup.json storage/app/config.json</code>      

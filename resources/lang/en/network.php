@@ -13,4 +13,6 @@ return [
     'gateway' => 'Gateway',
     'mask' => 'Mask',
     'dhcp' => 'DHCP',
+    'error' => 'Error!',
+    'sucess' => 'Success!',
     ];

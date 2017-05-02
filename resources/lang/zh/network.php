@@ -12,4 +12,6 @@ return [
     'gateway' => 'Gateway',
     'mask' => 'Mask',
     'dhcp' => 'DHCP',
+    'error' => '更改網路設定錯誤!',
+    'sucess' => '更改網路設定成功!',
     ];
