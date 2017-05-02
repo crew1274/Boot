@@ -11,9 +11,10 @@
 <code>$ cd web</code>       
 <code>$ composer install</code>     
 <code>$ cp .env.example .env</code>     
-> **Note:** 檢查 .env的設定，預設使用SQLite3，需要PHP SQLite Extension。      
-<code>$ touch database/database.sqlite</code>      
-<code>$ php artisan key:generate</code>     
+> **Note:** 檢查 .env的設定，預設使用SQLite3，需要PHP SQLite Extension。   
+
+<code>$ touch database/database.sqlite</code>       
+<code>$ php artisan key:generate</code>       
 <code>$ php artisan migrate --seed</code>           
 <code>$ cp storage/app/config_backup.json storage/app/config.json</code>      
 <code>$ sudo chmod 755 -R ../web/</code>      
