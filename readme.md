@@ -14,12 +14,12 @@
 > **Note:** 檢查 .env的設定，預設使用SQLite3，需要PHP SQLite Extension。   
 
 <code>$ touch database/database.sqlite</code><br>
-<code>$ php artisan key:generate</code><br>                 
-<code>$ php artisan migrate --seed</code><br>     
-<code>$ cp storage/app/config_backup.json storage/app/config.json</code>       
-<code>$ sudo chmod 755 -R ../web/</code>       
-<code>$ sudo chmod o+w -R storage/</code>       
-<code>$ sudo vim /etc/apache2/sites-available/web.conf</code>     
+<code>$ php artisan key:generate</code><br>
+<code>$ php artisan migrate --seed</code><br>
+<code>$ cp storage/app/config_backup.json storage/app/config.json</code><br>
+<code>$ sudo chmod 755 -R ../web/</code><br>
+<code>$ sudo chmod o+w -R storage/</code><br>
+<code>$ sudo vim /etc/apache2/sites-available/web.conf</code><br>
 ```sh
     ServerAdmin webmaster@localhost
     DocumentRoot /var/www/html/web/public
