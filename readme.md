@@ -11,8 +11,9 @@
 <code>$ cd web</code>       
 <code>$ composer install</code>     
 <code>$ cp .env.example .env</code>     
-檢查 .env的設定，預設使用sqlite3      
-<code>$ toush database/database.sqlite</code>      
+檢查 .env的設定，預設使用SQLite3，需要PHP SQLite Extension     
+<code>$ sudo apt-get install php-sqlite3</code>      
+<code>$ touch database/database.sqlite</code>      
 <code>$ php artisan key:generate</code>     
 <code>$ php artisan migrate --seed</code>           
 <code>$ cp storage/app/config_backup.json storage/app/config.json</code>      
