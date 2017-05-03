@@ -62,7 +62,7 @@
                         <div class="form-group{{ $errors->has('key') ? ' has-error' : '' }}">
                             <label for="key" class="col-md-4 control-label">@lang('server.key') :</label>
                             <div class="col-md-6">
-                                <input id="key" type="password" class="form-control" name="key"  value="{{$config['key']}}" required>
+                                <input id="key" type="password" class="form-control" name="key"  value="{{$config['key']}}">
                                 @if ($errors->has('key'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('key') }}</strong>
@@ -74,7 +74,7 @@
                         <div class="form-group{{ $errors->has('key_confirmation') ? ' has-error' : '' }}">
                             <label for="key_confirmation" class="col-md-4 control-label">@lang('server.key_confirmation') :</label>
                             <div class="col-md-6">
-                                <input id="ke_confirmation" type="password" class="form-control" name="key_confirmation" value="{{$config['key']}}" required>
+                                <input id="key_confirmation" type="password" class="form-control" name="key_confirmation" value="{{$config['key']}}">
                                 @if ($errors->has('key_confirmation'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('key_confirmation') }}</strong>

@@ -62,7 +62,7 @@ class HomeController extends Controller
             'domain' => 'url',
             'port' => 'integer',
             'path' => 'string',
-            'key' => 'string|confirmed',      
+            'key' => 'string|confirmed',   
     ]);
         $ip = $request -> get('ip');
         $domain = $request -> get('domain');
