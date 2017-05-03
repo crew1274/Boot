@@ -64,6 +64,11 @@ class HomeController extends Controller
             'path' => 'string',
             'key' => 'string|confirmed',   
     ]);
+        if($request->key == null && $request->key_confirmation != null)
+        {
+            LaravelSweetAlert::setMessageError(trans('server.config_server_error'));
+            return redirect()->back();
+        }
         $ip = $request -> get('ip');
         $domain = $request -> get('domain');
         $port = $request -> get('port');

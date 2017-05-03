@@ -11,6 +11,7 @@ return [
     'close' => '關閉',
     'apply' => '應用',
     'config_server_successful' => '伺服器設定更新成功!',
+    'config_server_error' => '伺服器設定更新失敗!',
     'key' => '加密金鑰',
     'key_confirmation' => '加密金鑰確認',
     'run' => '啟動',

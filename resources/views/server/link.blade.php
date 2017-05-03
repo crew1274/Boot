@@ -72,7 +72,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('key_confirmation') ? ' has-error' : '' }}">
-                            <label for="key_confirmation" class="col-md-4 control-label">@lang('server.key_confirmation') :</label>
+                            <label for="ke_confirmation" class="col-md-4 control-label">@lang('server.key_confirmation') :</label>
                             <div class="col-md-6">
                                 <input id="key_confirmation" type="password" class="form-control" name="key_confirmation" value="{{$config['key']}}">
                                 @if ($errors->has('key_confirmation'))

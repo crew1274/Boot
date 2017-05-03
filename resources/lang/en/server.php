@@ -11,6 +11,7 @@ return [
     'close' => 'Close',
     'apply' => 'Apply',
     'config_server_successful' => 'Server Config Update Successful!',
+    'config_server_error' => 'Server Config Update Error!',
     'key' => 'Encryption Key',
     'key_confirmation' => 'Encryption Key Confirmation',
     'run' => 'Start',
