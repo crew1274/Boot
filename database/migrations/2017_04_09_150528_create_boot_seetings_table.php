@@ -17,7 +17,7 @@ class CreateBootSeetingsTable extends Migration
             $table->increments('id');
             $table->string('model')->comment('機型名稱');
             $table->integer('address')->comment('位址');
-            $table->integer('ch')->comment('channel');
+            $table->integer('ch')->nullable()->comment('channel');
             $table->integer('speed')->comment('baud rate');
             $table->integer('circuit')->comment('迴路');
             $table->boolean('vaild')->default(1)->comment('驗證');

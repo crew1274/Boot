@@ -43,22 +43,22 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('ch') ? ' has-error' : '' }}">
-                            <label for="ch" class="col-md-4 control-label">@lang('boot.channel') :</label>
+                        <div class="form-group{{ $errors->has('circuit') ? ' has-error' : '' }}">
+                            <label for="circuit" class="col-md-4 control-label">@lang('boot.circuit') :</label>
 
                             <div class="col-md-6">
-                  {!! Form::text('ch', null, array('placeholder' => '1~15','class' => 'form-control')) !!}
-                                @if ($errors->has('ch'))
+                {!! Form::text('circuit', null, array('placeholder' => '','class' => 'form-control')) !!}
+                                @if ($errors->has('circuit'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('ch') }}</strong>
+                                        <strong>{{ $errors->first('circuit') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
+
                         <div class="form-group{{ $errors->has('speed') ? ' has-error' : '' }}">
                             <label for="speed" class="col-md-4 control-label">@lang('boot.baud_rate') :</label>
-
                             <div class="col-md-6">
                   {!!
                 Form::select('speed', array('1200' => '1200'
@@ -68,19 +68,6 @@
                                 @if ($errors->has('speed'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('speed') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('circuit') ? ' has-error' : '' }}">
-                            <label for="circuit" class="col-md-4 control-label">@lang('boot.circuit') :</label>
-
-                            <div class="col-md-6">
-                {!! Form::text('circuit', null, array('placeholder' => '1~72','class' => 'form-control')) !!}
-                                @if ($errors->has('circuit'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('circuit') }}</strong>
                                     </span>
                                 @endif
                             </div>

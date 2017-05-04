@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="author" content="黃偉鑫">
-    <meta name="description" content="客戶端網頁">
+    <meta name="author" content="">
+    <meta name="description" content="台科電客戶端">
     <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- Icon -->
     <link rel="icon" href="{{ asset("favicon.ico") }}" type="image/x-icon" />

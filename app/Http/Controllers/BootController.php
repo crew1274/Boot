@@ -50,15 +50,14 @@ class BootController extends Controller
         $this->validate($request, [
             'model' => 'bail|required|string',
             'address' => 'bail|required|integer|min:1|max:255',
-            'ch' => 'bail|required|integer|min:1|max:15',
             'speed' => 'bail|required|integer',
-            'circuit' => 'bail|required|integer|min:1|max:72',
+            'circuit' => 'bail|required|integer|min:1',
         ]);
         $address=$request->address;
         $settings=Boot_Setting::where('address',$address)->get();
         foreach ($settings as $setting => $value)
         {
-            if($request->ch == $value->ch && $request->circuit == $value->circuit)
+            if($request->circuit == $value->circuit)
             {
                 LaravelSweetAlert::setMessageError(trans('boot.create_error'));
                 return redirect()->back();
@@ -130,15 +129,14 @@ class BootController extends Controller
         $this->validate($request, [
          'model' => 'bail|required',
          'address' => 'bail|required|integer|min:1|max:255',
-         'ch' => 'bail|required|integer|min:1|max:15',
          'speed' => 'bail|required',
-         'circuit' => 'bail|required|integer|min:1|max:72',
+         'circuit' => 'bail|required|integer|min:1',
        ]);
        $address=$request->address;
         $settings=Boot_Setting::where('address',$address)->get();
        foreach ($settings as $setting => $value)
         {
-            if($request->ch == $value->ch && $request->circuit == $value->circuit && $id != $value->id)
+            if($request->circuit == $value->circuit && $id != $value->id)
                     {
                         LaravelSweetAlert::setMessageError(trans('boot.create_error'));
                         return redirect()->back();
