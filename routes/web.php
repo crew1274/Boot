@@ -12,6 +12,7 @@
 */
 
 Auth::routes();
+
 Route::get('/', 'HomeController@index');
 
 //更新檢查
@@ -35,10 +36,15 @@ Route::group(['prefix' => 'network'], function () {
     Route::post('dhcp', ['as' => 'network/dhcp', 'uses' => 'NetworkController@dhcp']);
     Route::get('/', 'NetworkController@index');
 });
-//server ip & domain update
-Route::get('/link', 'HomeController@getlink');
-Route::get('/time', 'HomeController@gettime');
-Route::post('link', ['as' => 'link', 'uses' => 'HomeController@link']);
-Route::post('time', ['as' => 'time', 'uses' => 'HomeController@time']);
+
+//伺服器設定
+Route::group(['middleware' => ['auth']], function()
+{
+    Route::get('/link', 'HomeController@getlink');
+    Route::get('/time', 'HomeController@gettime');
+    Route::post('/link', ['as' => 'link', 'uses' => 'HomeController@link']);
+    Route::post('/time', ['as' => 'time', 'uses' => 'HomeController@time']);
+});
+
 //測試路徑
 Route::get('test', function(){return view('test'); });
