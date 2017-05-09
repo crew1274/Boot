@@ -84,7 +84,7 @@ class HomeController extends Controller
         {
             exec('cd /var/www/html/web && git pull', $output);
             /*
-            執行其餘動作
+            執行其他指令
             */
             $output=last($output);
             LaravelSweetAlert::setMessage([
