@@ -7,6 +7,8 @@ use Riazxrazor\LaravelSweetAlert\LaravelSweetAlert;
 use Illuminate\Support\Facades\Auth;
 use App\Boot_setting;
 use Illuminate\Support\Facades\Storage;
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class HomeController extends Controller
 {
@@ -36,15 +38,39 @@ class HomeController extends Controller
                         'showConfirmButton' =>false
                     ]);
         */
-         LaravelSweetAlert::setMessage([
+        $python_dir=env("PYTHON_DIR", "/var/www/html/web/python");
+        $client=env("PYTHON_CLIENT", "client.py");
+        $output = array();
+        if(env('APP_ENV', 'production') == 'local')
+        {
+            exec("sudo -S python3 '{$python_dir}'/'{$client}'", $output);
+            $output=last($output);
+        }
+        else
+        {
+            exec("sudo -S python3 '{$python_dir}'/'{$client}'", $output);
+            $output=last($output);
+        }
+        if ($output != config('app.version', '1.0.0'))
+        {
+        LaravelSweetAlert::setMessage([
                         'type' => 'warning',
-                        'title' => '有可用的更新!',
+                        'title' => '有可用的更新!'.$output,
                         'buttonsStyling' => false,
                         'html' => '<a href=/upgrade>Click to Upgrade</a>',
                         'allowOutsideClick'=> true,
                         'showCloseButton' => true,
                         'showConfirmButton' =>false,
                     ]);
+        }
+        else
+        {
+        LaravelSweetAlert::setMessage([
+                        'title' => trans('server.latest_version'),
+                        'type' => 'info',
+                        'showConfirmButton' =>false
+                    ]);
+        }
         return redirect('/');
      }
 
