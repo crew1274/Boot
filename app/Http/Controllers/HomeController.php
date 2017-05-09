@@ -82,7 +82,7 @@ class HomeController extends Controller
         }
         else
         {
-            exec('cd /var/www/html/web && git stash', $output);
+
             exec('cd /var/www/html/web && git pull', $output);
             /*
             執行其他指令
