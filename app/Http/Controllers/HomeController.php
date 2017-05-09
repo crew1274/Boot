@@ -48,7 +48,7 @@ class HomeController extends Controller
         }
         else
         {
-            exec('python3 '.$python_dir.'/'.$client, $output);
+            exec('python3 /var/www/html/web/python/client.py ', $output);
             $output=last($output);
         }
         if ($output != config('app.version', '1.0.0'))
