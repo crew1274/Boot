@@ -65,4 +65,6 @@
 @endsection
 @push('javascript')
 @LaravelSweetAlertJS
+<script>
+</script>
 @endpush

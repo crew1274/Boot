@@ -40,6 +40,7 @@ Route::group(['prefix' => 'network'], function () {
 //伺服器設定
 Route::group(['middleware' => ['auth']], function()
 {
+    Route::get('/upload', 'HomeController@update');
     Route::get('/link', 'HomeController@getlink');
     Route::get('/time', 'HomeController@gettime');
     Route::post('/link', ['as' => 'link', 'uses' => 'HomeController@link']);

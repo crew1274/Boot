@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
-
     /**
      * Show the application dashboard.
      *
@@ -31,14 +30,27 @@ class HomeController extends Controller
     public function version()
      {
          /**輸入版本判斷邏輯
-
-         */
         LaravelSweetAlert::setMessage([
                         'title' => trans('server.latest_version'),
                         'type' => 'info',
                         'showConfirmButton' =>false
                     ]);
+        */
+         LaravelSweetAlert::setMessage([
+                        'type' => 'warning',
+                        'title' => '有可用的更新!',
+                        'buttonsStyling' => false,
+                        'html' => '<a href=/upgrade>Click to Upgrade</a>',
+                        'allowOutsideClick'=> true,
+                        'showCloseButton' => true,
+                        'showConfirmButton' =>false,
+                    ]);
         return redirect('/');
+     }
+
+     public function upload()
+     {
+
      }
 
      public function getlink()
