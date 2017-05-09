@@ -75,13 +75,14 @@ class HomeController extends Controller
             exec("echo 'Not run in local env'", $output);
             $output=last($output);
             LaravelSweetAlert::setMessage([
-                        'title' => '更新成功',
-                        'type' => 'success',
+                        'title' => '更新失敗',
+                        'type' => 'error',
                         'showConfirmButton' =>false
                     ]);
         }
         else
         {
+            exec('cd /var/www/html/web && git stash', $output);
             exec('cd /var/www/html/web && git pull', $output);
             /*
             執行其他指令
