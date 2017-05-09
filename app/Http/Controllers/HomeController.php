@@ -31,13 +31,6 @@ class HomeController extends Controller
 
     public function version()
      {
-         /**輸入版本判斷邏輯
-        LaravelSweetAlert::setMessage([
-                        'title' => trans('server.latest_version'),
-                        'type' => 'info',
-                        'showConfirmButton' =>false
-                    ]);
-        */
         $python_dir=env("PYTHON_DIR", "/var/www/html/web/python");
         $client=env("PYTHON_CLIENT", "client.py");
         $output = array();
@@ -74,9 +67,33 @@ class HomeController extends Controller
         return redirect('/');
      }
 
-     public function upload()
+     public function upgrade()
      {
-
+        $output = array();
+        if(env('APP_ENV', 'production') == 'local')
+        {
+            exec("echo 'Not run in local env'", $output);
+            $output=last($output);
+            LaravelSweetAlert::setMessage([
+                        'title' => '更新成功',
+                        'type' => 'success',
+                        'showConfirmButton' =>false
+                    ]);
+        }
+        else
+        {
+            exec('cd /var/www/html/web && git pull', $output);
+            /*
+            執行其餘動作
+            */
+            $output=last($output);
+            LaravelSweetAlert::setMessage([
+                        'title' => '更新成功',
+                        'type' => 'success',
+                        'showConfirmButton' =>false
+                    ]);
+        }
+        return redirect('/');
      }
 
      public function getlink()
