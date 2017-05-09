@@ -43,12 +43,12 @@ class HomeController extends Controller
         $output = array();
         if(env('APP_ENV', 'production') == 'local')
         {
-            exec("sudo -S python3 '{$python_dir}'/'{$client}'", $output);
+            exec('python3 '.$python_dir.'/'.$client, $output);
             $output=last($output);
         }
         else
         {
-            exec("sudo -S python3 '{$python_dir}'/'{$client}'", $output);
+            exec('python3 '.$python_dir.'/'.$client, $output);
             $output=last($output);
         }
         if ($output != config('app.version', '1.0.0'))
