@@ -82,10 +82,10 @@ class HomeController extends Controller
         }
         else
         {
-
+            //exec('kill ');
             exec('cd /var/www/html/web && git pull', $output);
             /*
-            執行其他指令
+            exec('./~.sh');
             */
             $output=last($output);
             LaravelSweetAlert::setMessage([

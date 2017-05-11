@@ -40,6 +40,9 @@ def command(topic,recv):
     if(recv == bytearray(b'up')):
         os.system('php %s/artisan up'%(web_dist))
         logger.info("Web Up")
+    if(recv == bytearray(b'upgrade')):
+        os.system('cd  %s && git pull'%(web_dist))
+        logger.info("upgrade")
         
 if __name__ == '__main__':
     formatter = "[%(asctime)s] {%(filename)s:%(lineno)d} %(levelname)s - %(message)s"
